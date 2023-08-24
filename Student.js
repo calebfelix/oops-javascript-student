@@ -196,6 +196,7 @@ class Student {
     }
   }
 
+  // Factory 
   static newStudent(
     firstName,
     lastName,
@@ -297,9 +298,7 @@ console.log(Student.updateStudent(1, "LastName", "UPDATEDdoe"));
 console.log(Student.updateStudent(5, "LastName", "UPDATEDdoe"));
 console.log(Student.updateStudent(1, "DOB", "11/05/1995"));
 console.log(Student.updateStudent(1, "D", "11/05/1995"));
-console.log(
-  Student.updateStudent(1, "CgpaArray", [10, 10, 10, 10, 10, 10, 10, 10])
-);
+console.log(Student.updateStudent(1, "CgpaArray", [10, 10, 10, 10, 10, 10, 10, 10]));
 console.log(Student.updateStudent(1, "CgpaArray", true));
 console.log(Student.updateStudent(1, "YearOfEnrollment", 2020));
 console.log(Student.updateStudent(1, "YearOfPassing", 2024));
