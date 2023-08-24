@@ -75,8 +75,8 @@ class Student {
   }
 
   static updateFirstName(id, newValue) {
-    if(typeof newValue !== "string"){
-        return [null, "invalid value"];
+    if (typeof newValue !== "string") {
+      return [null, "invalid value"];
     }
     let [objectToBeUpdated, objectToBeUpdatedIndex] = Student.findStudent(id);
     if (objectToBeUpdatedIndex == -1) {
@@ -89,8 +89,8 @@ class Student {
   }
 
   static updateLastName(id, newValue) {
-    if(typeof newValue !== "string"){
-        return [null, "invalid value"];
+    if (typeof newValue !== "string") {
+      return [null, "invalid value"];
     }
     let [objectToBeUpdated, objectToBeUpdatedIndex] = Student.findStudent(id);
     if (objectToBeUpdatedIndex == -1) {
@@ -103,14 +103,14 @@ class Student {
   }
 
   static updateDOB(id, newValue) {
-    if(typeof newValue !== "string"){
-        return [null, "invalid value"];
+    if (typeof newValue !== "string") {
+      return [null, "invalid value"];
     }
     let dateObject = new Date(newValue);
     if (dateObject == "Invalid Date") {
-        return [null, "invalid value"];
+      return [null, "invalid value"];
     }
-    
+
     let [objectToBeUpdated, objectToBeUpdatedIndex] = Student.findStudent(id);
     if (objectToBeUpdatedIndex == -1) {
       return [null, "invalid id"];
@@ -122,8 +122,8 @@ class Student {
   }
 
   static updateCgpaArray(id, newValue) {
-    if(!Array.isArray(newValue)){
-        return [null, "invalid Value"];
+    if (!Array.isArray(newValue)) {
+      return [null, "invalid Value"];
     }
     let [objectToBeUpdated, objectToBeUpdatedIndex] = Student.findStudent(id);
     if (objectToBeUpdatedIndex == -1) {
@@ -155,8 +155,8 @@ class Student {
   }
 
   static updateYearOfPassing(id, newValue) {
-    if(typeof newValue !== "number"){
-        return [null, "invalid value"];
+    if (typeof newValue !== "number") {
+      return [null, "invalid value"];
     }
     let [objectToBeUpdated, objectToBeUpdatedIndex] = Student.findStudent(id);
     if (objectToBeUpdatedIndex == -1) {
@@ -169,8 +169,8 @@ class Student {
   }
 
   static updateYearOfEnrollment(id, newValue) {
-    if(typeof newValue !== "number"){
-        return [null, "invalid value"];
+    if (typeof newValue !== "number") {
+      return [null, "invalid value"];
     }
     let [objectToBeUpdated, objectToBeUpdatedIndex] = Student.findStudent(id);
     if (objectToBeUpdatedIndex == -1) {
@@ -229,7 +229,9 @@ class Student {
       newSemesterGrades.push(Student.gradeCalculator(semesterCgpaArray[index]));
     }
     let sum = 0;
-    semesterCgpaArray.forEach((num) => {sum += num});
+    semesterCgpaArray.forEach((num) => {
+      sum += num;
+    });
     let newFinalCgpa = Math.round(sum / 8);
 
     let newFinalGrade = Student.gradeCalculator(newFinalCgpa);
@@ -292,8 +294,12 @@ console.log(Student.getAllStudents());
 // Update
 console.log(Student.updateStudent(1, "FirstName", "UPDATEDjohn"));
 console.log(Student.updateStudent(1, "LastName", "UPDATEDdoe"));
+console.log(Student.updateStudent(5, "LastName", "UPDATEDdoe"));
 console.log(Student.updateStudent(1, "DOB", "11/05/1995"));
-console.log(Student.updateStudent(1, "CgpaArray", [10, 10, 10, 10, 10, 10, 10, 10]));
+console.log(Student.updateStudent(1, "D", "11/05/1995"));
+console.log(
+  Student.updateStudent(1, "CgpaArray", [10, 10, 10, 10, 10, 10, 10, 10])
+);
 console.log(Student.updateStudent(1, "CgpaArray", true));
 console.log(Student.updateStudent(1, "YearOfEnrollment", 2020));
 console.log(Student.updateStudent(1, "YearOfPassing", 2024));
